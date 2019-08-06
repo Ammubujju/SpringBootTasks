@@ -41,11 +41,11 @@ public class TrackServiceImpl implements TrackService
         RestTemplate restTemplate = new RestTemplate();
         ObjectMapper mapper = new ObjectMapper();
 
-//		get a json object as a String
+       //get a json object as a String
         String json = restTemplate.getForObject(GET_URL, String.class);
 
         try {
-//			converting string as a json node
+       //converting string as a json node
             JsonNode rootNode = mapper.readTree(json);
             ArrayNode arrayNode =  (ArrayNode)rootNode.path("tracks").path("track");
             //iterate the JSON array
