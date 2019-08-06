@@ -17,8 +17,8 @@ import java.util.List;
 public class TrackController
 {
      
-    ResponseEntity responseEntity;
-    TrackService trackService;
+    private ResponseEntity responseEntity;
+    private TrackService trackService;
     @Autowired
     public TrackController(TrackService userService)
     {
