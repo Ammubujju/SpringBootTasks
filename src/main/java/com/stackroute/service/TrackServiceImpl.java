@@ -39,19 +39,11 @@ public class TrackServiceImpl implements TrackService {
     {
         return trackRepository.findAll();
     }
-
+    
     @Override
     public Track updateTrack(Track track) throws TrackNotFoundException
     {
-        /*if (trackRepository.existsById(track.getId())) {
-            Track trackobj = trackRepository.findById(track.getId()).get();
-            trackobj.setComment(track.getComment());
-            trackRepository.save(trackobj);
-            return trackobj;
-        } else {
-            throw new TrackNotFoundException("Track not found");
-        }*/
-
+        // updates the details of track by checking the user provided id
         Track track1=new Track();
         if (trackRepository.existsById(track.getId())) {
             track1.setName(track.getName());
@@ -62,6 +54,7 @@ public class TrackServiceImpl implements TrackService {
             throw new TrackNotFoundException("Track not found");
         }
     }
+
 
     @Override
     public boolean deleteTrack(int id)
