@@ -32,7 +32,7 @@ public class TrackController
           trackService.saveUser(user);
           responseEntity=new ResponseEntity<String>("successfully completed", HttpStatus.CREATED);
 
-      }catch (Exception ex)
+      }catch (TrackAlreadyExistsException ex)
       {
           responseEntity=new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
       }
@@ -55,7 +55,7 @@ return new ResponseEntity<List<Track>>(trackService.getAllUsers(), HttpStatus.OK
             trackService.updateTrack(track);
             responseEntity=new ResponseEntity("Successfully updated", HttpStatus.CREATED);
         }
-        catch (Exception e)
+        catch (TrackNotFoundException e)
         {
             responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
         }
