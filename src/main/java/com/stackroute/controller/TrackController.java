@@ -18,8 +18,9 @@ import java.util.List;
 public class TrackController
 {
     GlobalExceptions globalException=new GlobalExceptions();
-    ResponseEntity responseEntity;
-    TrackService trackService;
+    
+    private ResponseEntity responseEntity;
+    private TrackService trackService;
     @Autowired
     public TrackController(TrackService userService)
     {
