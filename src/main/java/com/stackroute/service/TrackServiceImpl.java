@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class TrackServiceImpl implements TrackService {
-    TrackRepository trackRepository;
+    private TrackRepository trackRepository;
 
     @Autowired
     public TrackServiceImpl(TrackRepository userRepository) {
@@ -29,7 +29,7 @@ public class TrackServiceImpl implements TrackService {
 
         if(saveUser==null)
         {
-            throw new TrackAlreadyExistsException("Track already present");
+            throw new TrackAlreadyExistsException("Track doesn't exist");
         }
         return saveUser;
 
