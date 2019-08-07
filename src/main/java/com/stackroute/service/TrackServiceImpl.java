@@ -31,11 +31,16 @@ public class TrackServiceImpl implements TrackService {
         trackRepository.save(track);
     }
 
-
-    @Override
-    public void deleteTrack(int id) {
-        trackRepository.deleteById(id);
+@Override
+    public Track deleteTrack(int id) {
+        Optional<Track> track =null;
+        if(trackRepository.existsById(id) == true) {
+            trackRepository.deleteById(id);
+            track= trackRepository.findById(id);
+        }
+        return track.get();
     }
+
     @Override
     public List<Track> trackByName(String firstName) {
         return trackRepository.trackByName(firstName);
